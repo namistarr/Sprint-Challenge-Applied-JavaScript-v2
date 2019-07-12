@@ -10,13 +10,13 @@
 
 
 
-const allTabs = document.querySelector('.tabs');
 
-axios.get(`https://lambda-times-backend.herokuapp.com/topics`)
+
+axios.get('https://lambda-times-backend.herokuapp.com/topics')
 .then(response => {
     const allTopics = document.querySelector('.topics');
     
-    return response.data.allTopics.map(topic => {
+    return response.data.topics.map(topic => {
         return allTopics.appendChild(lambdaTabs(topic));
         });      
     })

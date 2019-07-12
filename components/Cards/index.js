@@ -20,7 +20,7 @@
 
 const cardsContainer = document.querySelector('.cards-container');
 
-    axios.get("https://lambda-times-backend.herokuapp.com/articles")
+    axios.get('https://lambda-times-backend.herokuapp.com/articles')
   .then(response => {
     const articles = response.data.articles;
     const articleTopics = Object.keys(articles);
