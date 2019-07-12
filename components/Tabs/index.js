@@ -8,7 +8,31 @@
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
 
-const promise = axios.get(`https://lambda-times-backend.herokuapp.com/topics`)
+
 
 const allTabs = document.querySelector('.tabs');
 
+axios.get(`https://lambda-times-backend.herokuapp.com/topics`)
+.then(response => {
+    const allTopics = document.querySelector('.topics');
+    
+    return response.data.allTopics.map(topic => {
+        return allTopics.appendChild(lambdaTabs(topic));
+        });      
+    })
+  .catch(error => {
+    console.log('Error', error);
+  });
+
+function lambdaTabs(topic) {
+    //create elements
+    const tab = document.createElement('div');
+
+    //set class names
+    tab.classList.add('tab');
+
+    //set content
+    tab.textContent = topic;
+
+    return tab;
+}
