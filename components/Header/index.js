@@ -11,22 +11,24 @@
 
 const headerContainer = document.querySelector('.header-container');
 
-function Header(date, title, temp) {
+headerContainer.appendChild(lambdaHeader());
+
+function lambdaHeader() {
     //create elements
-    const header = document.querySelector('div');
-    const dateHead = document.querySelector('span');
-    const titleHead = document.querySelector('h1');
-    const tempHead = document.querySelector('span');
+    const header = document.createElement('div');
+    const date = document.createElement('span');
+    const title = document.createElement('h1');
+    const temp = document.createElement('span');
 
     //set class names
     header.classList.add('header');
-    dateHead.classList.add('date');
-    tempHead.classList.add('temp');
+    date.classList.add('date');
+    temp.classList.add('temp');
 
     //set content
-    dateHead.textContent = date;
-    titleHead.textContent = title;    
-    tempHead.textContent = temp;
+    date.textContent = 'JULY 12th, 2019';
+    title.textContent = 'Lambda Times';    
+    temp.textContent = '108';
 
     //put together
     header.appendChild(date);
